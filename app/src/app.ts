@@ -1,3 +1,4 @@
+import { router as apiRouter } from './api';
 import { errorHandlingMiddleware } from './error';
 import express from 'express';
 import morgan from 'morgan';
@@ -11,6 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res, next) => {
   res.send('OK');
 });
+
+app.use('/api', apiRouter);
 
 app.use((req, res) => {
   res.status(404).send('Not found');
