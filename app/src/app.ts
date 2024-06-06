@@ -1,7 +1,9 @@
+import APISpec from './openapi.json';
 import { router as apiRouter } from './api';
 import { errorHandlingMiddleware } from './error';
 import express from 'express';
 import morgan from 'morgan';
+import swagger from 'swagger-ui-express';
 
 const app = express();
 
@@ -12,6 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', (req, res, next) => {
   res.send('OK');
 });
+
+app.use('/api-docs', swagger.serve);
+app.use('/api-docs', swagger.setup(APISpec));
 
 app.use('/api', apiRouter);
 
