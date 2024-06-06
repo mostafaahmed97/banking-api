@@ -27,6 +27,9 @@ After cloning repo and running `npm i`, the following commands are available
 # From app directory
 cd /app
 
+# update env variables
+cp .env.exampel .env
+
 # run using dev server
 npm run start:dev
 
