@@ -13,11 +13,11 @@ A simple API to manipulate bank accounts & transactions.
 
 Available endpoints are:
 
-- GET   /api-docs, interactive API documentation using OpenAPI & Swagger
-- GET   /api/accounts/:id/balance, checks account's balance
-- POST  /api/accounts, opens new account
-- POST  /api/transactions/:accountId/deposit, deposits specified amount into account
-- POST  /api/transactions/:accountId/withdraw, withdraws specified amount from account
+- `GET   /api-docs`, interactive API documentation using OpenAPI & Swagger
+- `GET   /api/accounts/:id/balance`, checks account's balance
+- `POST  /api/accounts`, opens new account
+- `POST  /api/transactions/:accountId/deposit`, deposits specified amount into account
+- `POST  /api/transactions/:accountId/withdraw`, withdraws specified amount from account
 
 ## Running app
 
