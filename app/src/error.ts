@@ -12,7 +12,13 @@ class ValidationError extends Error {
   }
 }
 
-export { NotFoundError, ValidationError };
+class ForbiddenError extends Error {
+  constructor(message: string) {
+    super(message);
+  }
+}
+
+export { NotFoundError, ValidationError, ForbiddenError };
 
 export function errorHandlingMiddleware(
   err: Error,
@@ -28,6 +34,10 @@ export function errorHandlingMiddleware(
 
   if (err instanceof ValidationError) {
     return res.status(400).send({ error: err.message });
+  }
+
+  if (err instanceof ForbiddenError) {
+    return res.status(403).send({ error: err.message });
   }
 
   // Default error code & msg
